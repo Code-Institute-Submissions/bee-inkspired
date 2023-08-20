@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200&display=swap');
+
+div {
+    font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+/* #background {
+    background: url(/static/assets/images/beeinkspired-background.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 100vh;
+} */
+
+
+/* footer */
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+#social-media a {
+    color:inherit;
+    font-size:200%;
+} 
