@@ -62,3 +62,18 @@ body {
     color:#dcb42c;
     font-size:200%;
 } 
+
+/* Artist information page section */
+.container-fluid {
+    padding: 75px 0px;
+}
+
+.section-column {
+    text-align: center;
+    color: #dcb42c;
+}
+
+/* #artist-info {
+    color: antiquewhite;
+    vertical-align: middle;
+} */
