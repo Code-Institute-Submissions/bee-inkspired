@@ -63,6 +63,13 @@ body {
     font-size:200%;
 } 
 
+/* Home image */
+#home-image {
+    height: 1000px;
+    padding: 20px 0px;
+    width: 100%;
+}
+
 /* Artist information page section */
 .container-fluid {
     padding: 75px 0px;
