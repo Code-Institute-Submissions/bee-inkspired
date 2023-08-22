@@ -8,8 +8,6 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('book/', views.book, name='book'),
     path('login/', views.login, name='login'),
-
-    # tempory links
-    path('dashboard-user/', views.dashboarduser, name='dashboarduser'),
+    path('dashboard/<str:pk>/', views.dashboarduser, name="customer"),
     path('dashboard-artist/', views.dashboard, name='dashboard'),
 ]

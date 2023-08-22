@@ -9,6 +9,21 @@
       </div>
       <div class="col dashboard-heading">
         <h2>Upcoming bookings</h2>
+        <div class="card card-body">
+          <table class="table">
+              {% for booking in bookings %}
+                  <tr>
+                      <td>date</td>
+                      <td>time</td>
+                      <td>{{booking.customer}}</td>
+                      <td>{{booking.design}}</td>
+                      <td>{{booking.preference}}</td>
+                  </tr>
+              {% endfor %}
+  
+          </table>
+      </div>
+  </div>
       </div>
     </div>
     <div class="row">

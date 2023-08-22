@@ -10,7 +10,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <h2>Upcoming bookings</h2>
+            <h2>Upcoming bookings: {{total_bookings}} </h2>
         </div>
     </div>
 
@@ -28,8 +28,8 @@
 
             {% for booking in bookings %}
                 <tr>
-                    <td>test</td>
-                    <td></td>
+                    <td>date</td>
+                    <td>time</td>
                     <td>{{booking.customer}}</td>
                     <td>{{booking.design}}</td>
                     <td>{{booking.preference}}</td>

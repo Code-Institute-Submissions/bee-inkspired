@@ -23,12 +23,30 @@ def book(request):
 def login(request):
     return render(request, 'login.html')
 
+# user dashboard
+def dashboarduser(request, pk):
+    customer = Customer.objects.get(id=pk)
+    bookings = customer.order_set.all()
+    context = {
+        'customer':customer, 
+        'bookings':bookings
+    }
 
-def dashboarduser(request):
-    bookings = Booking.objects.all()
-    # context = {'bookings':bookings}
+    return render(request, 'dashboard-user.html',context)
 
-    return render(request, 'dashboard-user.html', {'bookings':bookings})
 
+
+
+
+
+# artist dashboard
 def dashboard(request):
-    return render(request, 'dashboard-artist.html')
+    bookings = Booking.objects.all()
+    total_bookings = bookings.count()
+    
+    context = {
+        'bookings':bookings, 
+        'total_bookings':total_bookings
+    }
+
+    return render(request, 'dashboard-artist.html', context)
