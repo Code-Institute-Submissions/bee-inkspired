@@ -5,16 +5,9 @@
 <section class="container-fluid">
     <div class="row row-table">
         <div class="col-md-6 section-column">
-            <div id="map">
-                <iframe src="https://storage.googleapis.com/maps-solutions-h42f1nmyd2/locator-plus/u9cn/locator-plus.html"
-                width="100%" height="500px"
-                style="border:0;"
-                loading="lazy">
-                </iframe>
-            </div>
+            <div onload="initMap()" id="map"></div>
         </div>
     </div>
 </section>
-
-
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"></script>
 {%endblock%}ß

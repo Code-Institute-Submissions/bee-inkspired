@@ -5,17 +5,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="apple-touch-icon" sizes="180x180" href="../static/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../static/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../static/favicon/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-
     <link rel="stylesheet" href="/static/assets/css/style.css">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    
+    <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> -->
+    <script src="/js/script.js"></script>
     <title>Bee Inkspired</title>
 </head>
 <body>
@@ -34,16 +32,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav text-center mx-auto">
                 <li class="nav-item">
-                <a class="nav-link" href="gallery">GALLERY</a>
+                <a class="nav-link" href="{% url 'gallery' %}">GALLERY</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="artist">ARTIST</a>
+                <a class="nav-link" href="{% url 'artist' %}">ARTIST</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="contact">CONTACT</a>
+                <a class="nav-link" href="{% url 'contact' %}">CONTACT</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="book">BOOKING</a>
+                    <a class="nav-link" href="{% url 'book' %}">BOOKING</a>
                 </li>
             </ul>
             </div>

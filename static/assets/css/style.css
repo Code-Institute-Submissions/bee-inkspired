@@ -84,3 +84,8 @@ body {
     color: antiquewhite;
     vertical-align: middle;
 } */
+
+/* Map contact page */
+#map {
+    height: 100%;
+  }
