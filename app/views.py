@@ -18,3 +18,14 @@ def contact(request):
 def book(request):
     return render(request, 'book.html')
 
+def login(request):
+    return render(request, 'login.html')
+
+
+
+# tempory links
+def dashboarduser(request):
+    return render(request, 'dashboard-user.html')
+
+def dashboard(request):
+    return render(request, 'dashboard-artist.html')

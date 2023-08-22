@@ -80,12 +80,19 @@ body {
     color: #dcb42c;
 }
 
-/* #artist-info {
-    color: antiquewhite;
-    vertical-align: middle;
-} */
-
 /* Map contact page */
 #map {
     height: 100%;
   }
+
+
+/* heading */
+h2 {
+    color: #dcb42c !important;
+    text-transform: uppercase;
+}
+
+h4 {
+    color: #dcb42c !important;
+    text-transform: uppercase;
+}
