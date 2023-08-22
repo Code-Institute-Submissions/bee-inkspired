@@ -13,6 +13,31 @@
             <h2>Upcoming bookings</h2>
         </div>
     </div>
+
+
+
+    <div class="card card-body">
+        <table class="table">
+            <tr>
+                <th><h2>Date</h2></th>
+                <th><h2>Time</h2></th>
+                <th><h2>Client</h2></th>
+                <th><h2>Design</h2></th>
+                <th><h2>Preference</h2></th>
+            </tr>
+
+            {% for booking in bookings %}
+                <tr>
+                    <td>test</td>
+                    <td></td>
+                    <td>{{booking.customer}}</td>
+                    <td>{{booking.design}}</td>
+                    <td>{{booking.preference}}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    </div>
 </div>
 
 {%endblock%}

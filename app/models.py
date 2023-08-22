@@ -36,8 +36,15 @@ class Booking(models.Model):
         ('booked','booked'),
         ('available','available')
     )
+    PREFERENCE = (
+        ('radio','radio'),
+        ('talking','talking'),
+        ('silence','silence'),
+        ('not fused','not fused')
+    )
     # date =
     # time =
     customer = models.ForeignKey(Customer, null=True, on_delete=models.SET_NULL)
     design = models.ForeignKey(Design, null=True, on_delete=models.SET_NULL)
     status = models.CharField(max_length=200, null=True, choices=STATUS)
+    preference = models.CharField(max_length=200, null=True, choices=PREFERENCE)
