@@ -1,58 +1,96 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
-
+<h1>Choose a flash design:</h1>
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            Misc designs
+            <h2>Misc designs</h2>
+        </div>
+    </div>
+    <div class="row design-background">
+        <div class="col-3 design">
+            <img src="{% static 'assets/images/flash-designs/1.jpeg' %}" class="booking-image">
+        </div>
+        <div class="col-3 design">
+            <img src="{% static 'assets/images/flash-designs/2.jpeg' %}" class="booking-image">
+        </div>
+        <div class="col-3 design">
+            <img src="{% static 'assets/images/flash-designs/3.jpeg' %}" class="booking-image">
+        </div>
+        <div class="col-3 design">
+            <img src="{% static 'assets/images/flash-designs/4.jpeg' %}" class="booking-image">
         </div>
     </div>
     <div class="row">
         <div class="col">
-            PHOTOS
+            <h2>Chess</h2>
+        </div>
+    </div>
+    <div class="row design-background">
+        <div class="col-4 design">
+            <img src="{% static 'assets/images/flash-designs/5.jpeg' %}" class="booking-image">
+        </div>
+        <div class="col-4 design">
+            <img src="{% static 'assets/images/flash-designs/6.jpeg' %}" class="booking-image">
+        </div>
+        <div class="col-4 design">
+            <img src="{% static 'assets/images/flash-designs/7.jpeg' %}" class="booking-image">
         </div>
     </div>
     <div class="row">
         <div class="col">
-            Chess
+            <h2>Ballons</h2>
+        </div>
+    </div>
+    <div class="row design-background">
+        <div class="col-3 design">
+            <img src="{% static 'assets/images/flash-designs/8.jpeg' %}" class="booking-image">
+        </div>
+        <div class="col-3 design">
+            <img src="{% static 'assets/images/flash-designs/9.jpeg' %}" class="booking-image">
+        </div>
+        <div class="col-3 design">
+            <img src="{% static 'assets/images/flash-designs/10.jpeg' %}" class="booking-image">
+        </div>
+        <div class="col-3 design">
+            <img src="{% static 'assets/images/flash-designs/11.jpeg' %}" class="booking-image">
         </div>
     </div>
     <div class="row">
         <div class="col">
-            PHOTOS
+            <h2>Cans</h2>
+        </div>
+    </div>
+    <div class="row design-background">
+        <div class="col-6 design">
+            <img src="{% static 'assets/images/flash-designs/12.jpeg' %}" class="booking-image">
+        </div>
+        <div class="col-6 design">
+            <img src="{% static 'assets/images/flash-designs/13.jpeg' %}" class="booking-image">
         </div>
     </div>
     <div class="row">
         <div class="col">
-            Ballons
+            <h2>Star wars</h2>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            PHOTOS
+    <div class="row design-background">
+        <div class="col-3 design">
+            <img src="{% static 'assets/images/flash-designs/14.jpeg' %}" class="booking-image">
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            Cans
+        <div class="col-3 design">
+            <img src="{% static 'assets/images/flash-designs/15.jpeg' %}" class="booking-image">
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            PHOTOS
+        <div class="col-3 design">
+            <img src="{% static 'assets/images/flash-designs/16.jpeg' %}" class="booking-image">
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            Star wars
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            PHOTOS
+        <div class="col-3 design">
+            <img src="{% static 'assets/images/flash-designs/17.jpeg' %}" class="booking-image">
         </div>
     </div>
 </div>
+
+<h1>Pick a date:</h1>
 
 {%endblock%}
