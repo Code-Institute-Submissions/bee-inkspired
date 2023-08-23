@@ -24,15 +24,17 @@ def login(request):
     return render(request, 'login.html')
 
 # user dashboard
-def dashboarduser(request, pk):
+def client(request, pk):
     customer = Customer.objects.get(id=pk)
-    bookings = customer.order_set.all()
+    booking = Booking.objects.all()
+    bookings = customer.booking_set.all()
+
     context = {
-        'customer':customer, 
+        'customer':customer,
         'bookings':bookings
     }
 
-    return render(request, 'dashboard-user.html',context)
+    return render(request, 'dashboard-user.html', context)
 
 
 
