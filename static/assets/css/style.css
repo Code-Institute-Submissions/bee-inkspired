@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200&display=swap');
 
 body {
-    background-color: black !important;
+    background-color: #0d0d0d !important;
     font-family: 'Bricolage Grotesque', sans-serif !important;
 }
 
@@ -20,8 +20,8 @@ body {
 
 .navbar .navbar-nav {
         margin-top: 0.5em;
-        border-top: 2px solid #dcb42c;
-        border-bottom: 2px solid #dcb42c;
+        border-top: 2px solid #cfb442;
+        border-bottom: 2px solid #cfb442;
 }
 
 .navbar-brand img {
@@ -29,11 +29,11 @@ body {
 } 
 
 .nav-link {
-    color: rgba(220, 180, 44, 0.6) !important;
+    color: rgba(207,180,66, 0.6) !important;
 }
 
 .nav-link:hover {
-    color: rgba(220, 180, 44, 1) !important;
+    color: rgba(207,180,66, 1) !important;
 }
 
 .navbar-toggler {
@@ -42,6 +42,20 @@ body {
 
 .navbar-toggler-icon {
     --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28220, 180, 44, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.dropdown-menu {
+    --bs-dropdown-bg: #000 !important;
+    --bs-dropdown-link-hover-bg:  transparent !important;
+}
+
+.dropdown-item {
+    color: rgba(207,180,66, 0.6) !important;
+    --bs-dropdown-link-active-bg: transparent;
+}
+
+.dropdown-item:hover {
+    color: rgba(207,180,66, 1) !important;
 }
 
 
@@ -58,13 +72,13 @@ body {
 }
 
 #social-media a {
-    color:#dcb42c;
+    color:#cfb442;
     font-size:200%;
 } 
 
 /* Home image */
-home-image {
-    height: 1000px;
+.home-image {
+    height: 500px;
     padding-top: 20px;
     width: 100%;
     object-fit: cover;
@@ -77,20 +91,22 @@ home-image {
 
 .section-column {
     text-align: center;
-    color: #dcb42c;
+    color: #cfb442;
 }
 
 /* heading */
 h1{
-    color: #dcb42c !important;
+    color: #cfb442 !important;
     text-transform: uppercase;
     padding: 70px 0px;
     text-align: center;
+    letter-spacing: 5px;
 }
 
 h2 {
-    color: #dcb42c !important;
+    color: #000 !important;
     text-transform: uppercase;
+    font-weight: bold;
     padding: 20px 0px;
 }
 
@@ -142,7 +158,7 @@ h2 {
 }
 
 .booking-label {
-    color: #000 !important;
+    color: #0d0d0d !important;
     font-weight: bolder;
     letter-spacing: 5px;
     text-transform: uppercase;
@@ -154,3 +170,13 @@ h2 {
     height: 500px;
     margin-top: 40px;
   }
+
+.card-body {
+    background-image: url("/static/assets/images/studio-transparent.jpg");
+    background-position: center;
+}
+
+.table {
+    --bs-table-bg: transparent !important;
+}
+
