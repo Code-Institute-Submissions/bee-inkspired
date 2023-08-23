@@ -33,6 +33,7 @@
               <th><h2>Design</h2></th>
               <th><h2>Preference</h2></th>
               <th><h2>Amend</h2></th>
+              <th><h2>Cancel</h2></th>
              </tr>
             {% for booking in bookings %}
               <tr>
@@ -40,7 +41,8 @@
                 <td>time</td>
                 <td>{{booking.design}}</td>
                 <td>{{booking.preference}}</td>
-                <td>amend</td>
+                <td><a class='btn' href="{% url 'update-booking' booking.id %}">Amend</a></td>
+                <td><a class='btn' href="{% url 'cancel-booking' booking.id %}">Cancel</a></td>
               </tr>
             {% endfor %}
           </table>
@@ -50,6 +52,27 @@
         <div class="col dashboard-heading">
           <h2>Previous bookings</h2>
         </div>
+        <div class="card card-body">
+          <table class="table">
+            <tr>
+              <th><h2>Date</h2></th>
+              <th><h2>Time</h2></th>
+              <th><h2>Design</h2></th>
+              <th><h2>Preference</h2></th>
+              <th><h2>Leave review</h2></th>
+             </tr>
+            {% for booking in bookings %}
+              <tr>
+                <td>date</td>
+                <td>time</td>
+                <td>Design</td>
+                <td>Preference</td>
+                <td>Leave review</td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
 
   </div>
 </div>

@@ -5,17 +5,29 @@
 <div class="container text-center">
     <div class="row">
         <div class="col dashboard-heading">
-            <h2>Account information</h2>
+          <h2>Account information</h2>
+          <div class="card card-body">
+            <table class="table">
+              <tr>
+                <th><h2>Name</h2></th>
+                <th><h2>Email</h2></th>
+                <th><h2>Phone</h2></th>
+                <th><h2>Update details</h2></th>
+              </tr>
+              <tr>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Phone</td>
+                <td>Update details</td>
+              </tr>
+            </table>
+          </div>
         </div>
-    </div>
     <div class="row">
         <div class="col">
             <h2>Upcoming bookings: {{total_bookings}} </h2>
         </div>
     </div>
-
-
-
     <div class="card card-body">
         <table class="table">
             <tr>
@@ -25,7 +37,6 @@
                 <th><h2>Design</h2></th>
                 <th><h2>Preference</h2></th>
             </tr>
-
             {% for booking in bookings %}
                 <tr>
                     <td>date</td>
@@ -35,7 +46,6 @@
                     <td>{{booking.preference}}</td>
                 </tr>
             {% endfor %}
-
         </table>
     </div>
 </div>

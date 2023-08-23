@@ -1,7 +1,18 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" name="Submit">
+</form>
+
+
 <h1>Choose a flash design:</h1>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col">
@@ -90,7 +101,5 @@
         </div>
     </div>
 </div>
-
-<h1>Pick a date:</h1>
 
 {%endblock%}

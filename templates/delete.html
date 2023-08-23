@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<h1>Are you sure you want to cancel your booking on: {{booking.design}}</h1>
+
+<form action="{% url 'cancel-booking' booking.id %}" method="POST">
+    {% csrf_token %}
+    <a href="">Go back to dashboard</a>
+    <input type="submit" name="Confirm">
+</form>
+
+{%endblock%}
