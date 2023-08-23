@@ -29,26 +29,28 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav text-center mx-auto">
-                <li class="nav-item">
-                <a class="nav-link" href="{% url 'gallery' %}">GALLERY</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    INFO
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'artist' %}">ARTIST</a>
+                        <a class="dropdown-item" href="{% url 'studio' %}">STUDIO</a>
+                    </div>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="{% url 'artist' %}">ARTIST</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="{% url 'contact' %}">CONTACT</a>
+                    <a class="nav-link" href="{% url 'gallery' %}">GALLERY</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'book' %}">BOOKING</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">LOGIN</a>
+                    <a class="nav-link" href="{% url 'login' %}">DASHBOARD</a>
                 </li>
             </ul>
             </div>
         </div>
     </nav>
-
 
     {% block content %}
     <!-- Content Goes here -->

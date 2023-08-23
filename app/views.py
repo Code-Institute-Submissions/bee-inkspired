@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.http import HttpResponse
-from .forms import BookingForm
+from .forms import BookingForm, CreateUserForm
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 from .models import * 
@@ -15,8 +16,8 @@ def gallery(request):
 def artist(request):
     return render(request, 'artist.html')
 
-def contact(request):
-    return render(request, 'contact.html')
+def studio(request):
+    return render(request, 'studio.html')
 
 # booking flash design appointment page
 def book(request):
@@ -57,15 +58,12 @@ def updateBooking(request, pk):
 
 
 
-
-
-
 def cancelBooking(request, pk):
     booking = Booking.objects.get(id=pk)
     if request.method == 'POST':
         booking.delete()
         return redirect('/')
-
+        
     context = {
         'booking':booking
     }
@@ -73,17 +71,36 @@ def cancelBooking(request, pk):
 
 
 
+def register(request):
+    form = CreateUserForm()
 
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
 
-
-
-
-
+    context = {
+        'form':form
+    }
+    return render(request, 'register.html', context)
 
 
 
 def login(request):
-    return render(request, 'login.html')
+
+    context = {
+
+    }
+    return render(request, 'login.html', context)
+
+
+
+
+
+
+
+
 
 # user dashboard
 def client(request, pk):
