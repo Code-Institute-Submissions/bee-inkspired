@@ -31,7 +31,7 @@ def client(request, pk):
 
     context = {
         'customer':customer,
-        'bookings':bookings
+        'bookings':bookings,
     }
 
     return render(request, 'dashboard-user.html', context)

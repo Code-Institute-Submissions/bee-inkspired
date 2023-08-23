@@ -6,6 +6,22 @@
     <div class="row">
       <div class="col dashboard-heading">
         <h2>Account information</h2>
+        <div class="card card-body">
+          <table class="table">
+            <tr>
+              <th><h2>Name</h2></th>
+              <th><h2>Email</h2></th>
+              <th><h2>Phone</h2></th>
+              <th><h2>Update details</h2></th>
+            </tr>
+            <tr>
+              <td>{{customer.name}}</td>
+              <td>{{customer.email}}</td>
+              <td>{{customer.phone}}</td>
+              <td>Update details</td>
+            </tr>
+          </table>
+        </div>
       </div>
       <div class="col dashboard-heading">
         <h2>Upcoming bookings</h2>
@@ -18,27 +34,24 @@
               <th><h2>Preference</h2></th>
               <th><h2>Amend</h2></th>
              </tr>
-
-              {% for booking in bookings %}
-                  <tr>
-                      <td>date</td>
-                      <td>time</td>
-                      <td>{{booking.design}}</td>
-                      <td>{{booking.preference}}</td>
-                      <td>amend</td>
-                  </tr>
-              {% endfor %}
-  
+            {% for booking in bookings %}
+              <tr>
+                <td>date</td>
+                <td>time</td>
+                <td>{{booking.design}}</td>
+                <td>{{booking.preference}}</td>
+                <td>amend</td>
+              </tr>
+            {% endfor %}
           </table>
+        </div>
       </div>
+      <div class="row">
+        <div class="col dashboard-heading">
+          <h2>Previous bookings</h2>
+        </div>
+
   </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col dashboard-heading">
-        <h2>Previous bookings</h2>
-      </div>
-    </div>
 </div>
 
 {%endblock%}
