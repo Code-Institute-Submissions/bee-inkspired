@@ -2,13 +2,38 @@
 {% load static %}
 {% block content %}
 
+<div class="img-background mx-auto">
+    <h1 class="login-header">Book</h1>
+    <div class="col-md-12 section-column center">
+        <form class="form-container" method="POST" action="">
+            {% csrf_token %}
+            <div>
+                <label class="booking-label">customer</label>
+                {{form.customer}}
+            </div>
+            <div>
+                <label class="booking-label">design</label>
+                {{form.design}}
+            </div>
+            <div>
+                <label class="booking-label">status</label>
+                {{form.status}}
+            </div>
+            <div>
+                <label class="booking-label">preference</label>
+                {{form.preference}}
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary btn-block mt-4">Book</button>
+            </div>
+            </div>
+        </form>
+    </div>
+</div>
 
 
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" name="Submit">
-</form>
+
+
 
 <h1>Choose a flash design:</h1>
 
