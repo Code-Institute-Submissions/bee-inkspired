@@ -4,24 +4,21 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 from .models import * 
 from .forms import BookingForm, CreateUserForm
+from .decorators import unauthenticated_user, allowed_users
 
+# General nav links
 def home(request):
     return render(request, 'index.html')
 
 def gallery(request):
     return render(request, 'gallery.html')
 
-def artist(request):
-    return render(request, 'artist.html')
-
-def studio(request):
-    return render(request, 'studio.html')
-
-# booking flash design appointment page
+# Booking flash design appointment page
 def book(request):
     form = BookingForm()
     if request.method == 'POST':
@@ -35,10 +32,8 @@ def book(request):
     }
     return render(request, 'book.html', context)
 
-
-
-
-
+# Amend flash design appointment 
+@login_required(login_url='login')
 def updateBooking(request, pk):
 
     booking = Booking.objects.get(id=pk)
@@ -48,7 +43,10 @@ def updateBooking(request, pk):
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            if request.user.is_staff:
+                return redirect('dashboard')
+            else:
+                return redirect('customer')
 
 
     context = {
@@ -56,22 +54,23 @@ def updateBooking(request, pk):
     }
     return render(request, 'book.html', context)
 
-
-
-
+# Cancel flash design appointment 
 def cancelBooking(request, pk):
     booking = Booking.objects.get(id=pk)
     if request.method == 'POST':
         booking.delete()
-        return redirect('/')
+        if request.user.is_staff:
+            return redirect('dashboard')
+        else:
+            return redirect('customer')
         
     context = {
         'booking':booking
     }
     return render(request, 'delete.html', context)
 
-
-
+# Register new user
+@unauthenticated_user
 def register(request):
     form = CreateUserForm()
     if request.method == 'POST':
@@ -86,8 +85,8 @@ def register(request):
     }
     return render(request, 'register.html', context)
 
-
-
+# Login user
+@unauthenticated_user
 def loginPage(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -95,41 +94,43 @@ def loginPage(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home')
+            if request.user.is_staff:
+                return redirect('dashboard')
+            else:
+                return redirect('customer')
         else:
             messages.info(request, 'Username or password is invalid')
     context = {
     }
     return render(request, 'login.html', context)
 
-
+# Logout user
 def logoutUser(request):
     logout(request)
     return redirect('login')
 
 
+# User dashboard
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer'])
+def client(request):
+    # customer = Customer.objects.all()
+    # booking = Booking.objects.all()
+    # bookings = customer.booking_set.all()
+    # context = {
+    #     'customer':customer,
+    #     'bookings':bookings,
+    # }
+    return render(request, 'dashboard-user.html')
 
-
-
-
-# user dashboard
-def client(request, pk):
-    customer = Customer.objects.get(id=pk)
-    booking = Booking.objects.all()
-    bookings = customer.booking_set.all()
-    context = {
-        'customer':customer,
-        'bookings':bookings,
-    }
-    return render(request, 'dashboard-user.html', context)
-
-
-# artist dashboard
+# Artist dashboard
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def dashboard(request):
-    bookings = Booking.objects.all()
-    total_bookings = bookings.count()
-    context = {
-        'bookings':bookings, 
-        'total_bookings':total_bookings
-    }
-    return render(request, 'dashboard-artist.html', context)
+    # bookings = Booking.objects.all()
+    # total_bookings = bookings.count()
+    # context = {
+    #     'bookings':bookings, 
+    #     'total_bookings':total_bookings
+    # }
+    return render(request, 'dashboard-artist.html')

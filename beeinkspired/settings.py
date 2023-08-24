@@ -18,6 +18,7 @@ if os.path.isfile("env.py"):
    import env
 
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
@@ -33,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-debbieherri-beeinkspire-y4ai6cfa443.ws-eu104.gitpod.io',
+    '8000-debbieherri-beeinkspire-rubet5ea6pn.ws-eu104.gitpod.io',
     'bee-inkspired.herokuapp.com', 
     'localhost',
 ]

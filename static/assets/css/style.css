@@ -180,3 +180,7 @@ h2 {
     --bs-table-bg: transparent !important;
 }
 
+.img-fluid {
+    min-height: 100%;
+    padding: 20px;
+}
