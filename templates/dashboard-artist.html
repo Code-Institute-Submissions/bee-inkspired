@@ -11,14 +11,12 @@
               <tr>
                 <th><h2>Name</h2></th>
                 <th><h2>Email</h2></th>
-                <th><h2>Phone</h2></th>
                 <th><h2>Update details</h2></th>
               </tr>
               <tr>
-                <td>Name</td>
-                <td>Email</td>
-                <td>Phone</td>
-                <td>Update details</td>
+                <td>{{request.user.username}}</td>
+                <td>{{request.user.email}}</td>
+                <td><a class='btn btn-dark' href="">Amend</a></td>
               </tr>
             </table>
           </div>
@@ -35,6 +33,7 @@
                 <th><h2>Time</h2></th>
                 <th><h2>Client</h2></th>
                 <th><h2>Design</h2></th>
+                <th><h2>Tags</h2></th>
                 <th><h2>Preference</h2></th>
             </tr>
             {% for booking in bookings %}
@@ -43,11 +42,36 @@
                     <td>time</td>
                     <td>{{booking.customer}}</td>
                     <td>{{booking.design}}</td>
+                    <td>{% for tags in booking.design.tags.all %} {{ tags }} / {% endfor %}</td>
                     <td>{{booking.preference}}</td>
                 </tr>
             {% endfor %}
         </table>
     </div>
+    <div class="row">
+      <div class="col dashboard-heading">
+        <h1>Outstanding enquiries: {{enquiry_bookings}} </h1>
+        <div class="card card-body">
+          <table class="table">
+            <tr>
+              <th><h2>Name</h2></th>
+              <th><h2>Email</h2></th>
+              <th><h2>Details</h2></th>
+              <th><h2>Image</h2></th>
+              <th><h2>Delete</h2></th>
+            </tr>
+            {% for enquiries in enquiry %}
+            <tr>
+              <td>{{enquiries.customer}}</td>
+              <td>{{enquiries.customer.email}}</td>
+              <td>{{enquiries.enquiry}}</td>
+              <td><a class='btn btn-dark' href="{{enquiries.image.url}}">Download Image</a></td>
+              <td><a class='btn btn-dark' href="">Delete</a></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
 </div>
 
 {%endblock%}

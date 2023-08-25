@@ -6,12 +6,19 @@ from django import forms
 
 from .models import *
 
+# Booking form
 class BookingForm(ModelForm):
     class Meta: 
         model = Booking
         fields = '__all__'
 
+# Enquiry form
+class EnquiryForm(ModelForm):
+    class Meta: 
+        model = Enquiry
+        fields = '__all__'
 
+# Register new user form
 class CreateUserForm(UserCreationForm):
     class Meta: 
         model = User

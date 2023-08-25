@@ -11,18 +11,18 @@
             <tr>
               <th><h2>Name</h2></th>
               <th><h2>Email</h2></th>
-              <th><h2>Phone</h2></th>
               <th><h2>Update details</h2></th>
             </tr>
             <tr>
-              <td>{{customer.name}}</td>
-              <td>{{customer.email}}</td>
-              <td>{{customer.phone}}</td>
-              <td>Update details</td>
+              <td>{{request.user.username}}</td>
+              <td>{{request.user.email}}</td>
+              <td><a class='btn btn-dark' href="">Amend</a></td>
             </tr>
           </table>
         </div>
       </div>
+    </div>
+    <div class="row"> 
       <div class="col dashboard-heading">
         <h1>Upcoming bookings</h1>
         <div class="card card-body">
@@ -48,6 +48,7 @@
           </table>
         </div>
       </div>
+    </div>
       <div class="row">
         <div class="col dashboard-heading">
           <h1>Previous bookings</h1>

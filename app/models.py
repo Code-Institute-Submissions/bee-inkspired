@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
+
+# Customer model
 class Customer(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, null=True)
@@ -12,7 +13,7 @@ class Customer(models.Model):
     def __str__(self):
         return self.name
 
-
+# Tag model
 class Tag(models.Model):
     name = models.CharField(max_length=200, null=True)
 
@@ -20,19 +21,16 @@ class Tag(models.Model):
         return self.name
 
 
+# Flash designs model
 class Design(models.Model):
     name = models.CharField(max_length=200, null=True)
     tags = models.ManyToManyField(Tag)
-    
-    def design_range():
-        for i in range(1, 19):
-            DESIGN = [i]
-        design = models.CharField(max_length=200, null=True, choices=DESIGN)
 
     def __str__(self):
         return self.name
 
 
+# Appointment booking model
 class Booking(models.Model):
     STATUS = (
         ('booked','booked'),
@@ -50,3 +48,9 @@ class Booking(models.Model):
     design = models.ForeignKey(Design, null=True, on_delete=models.SET_NULL)
     status = models.CharField(max_length=200, null=True, choices=STATUS)
     preference = models.CharField(max_length=200, null=True, choices=PREFERENCE)
+
+# Customer enquiry model
+class Enquiry(models.Model):
+    customer = models.ForeignKey(Customer, null=True, on_delete=models.SET_NULL)
+    enquiry = models.CharField(max_length=500, null=True)
+    image = models.FileField(upload_to='customer-enqiries')
