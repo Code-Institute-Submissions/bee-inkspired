@@ -5,11 +5,12 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from datetime import datetime, timedelta
 
 # Create your views here.
 from .models import * 
 from .forms import *
-from .decorators import unauthenticated_user, allowed_users, user_booking
+from .decorators import unauthenticated_user, allowed_users
 
 # General nav links
 def home(request):
@@ -18,42 +19,48 @@ def home(request):
 def gallery(request):
     return render(request, 'gallery.html')
 
+# Put next 14 days into a list
+def week(days):
+    today = datetime.now()
+    tomorrow = today + timedelta(days=1)
+    dates_list = []
+    for i in range (0, days):
+        x = tomorrow + timedelta(days=i)
+        dates_list.append(x.strftime('%Y-%m-%d'))
+    return dates_list
+
 # Booking flash design appointment page
-@user_booking
+@login_required
 def book(request):
+    dates = week(14)
     form = BookingForm()
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('customer')
 
     context = {
         'form':form,
+        'dates':dates
     }
     return render(request, 'book.html', context)
 
 # Amend flash design appointment 
-@user_booking
+@login_required
 def updateBooking(request, pk):
-
     booking = Booking.objects.get(id=pk)
     form = BookingForm(instance=booking)
-
     if request.method == 'POST':
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
             form.save()
-            if request.user.is_staff:
-                return redirect('dashboard')
-            else:
-                return redirect('customer')
-
+            return redirect('customer')
 
     context = {
         'form':form,
     }
-    return render(request, 'book.html', context)
+    return render(request, 'update-booking.html', context)
 
 # Cancel flash design appointment 
 def cancelBooking(request, pk):
@@ -69,28 +76,6 @@ def cancelBooking(request, pk):
         'booking':booking
     }
     return render(request, 'delete.html', context)
-
-# Send an enquiry
-def userEnquiry(request):
-    enquiry = EnquiryForm()
-    if request.method == 'POST':
-        enquiry = EnquiryForm(request.POST)
-        if enquiry.is_valid():
-            enquiry.save()
-            messages.success(request, 'Thank you, your enquiry has been sent and Olivia will be in touch as soon as possible!')
-            return
-    context = {
-        'enquiry':enquiry,
-    }
-    return render(request, 'book.html', context)
-
-# Delete an enquiry
-# def deleteEnquiry(request, pk):
-#     enquiry = Enquiry.objects.get(id=pk)
-#     if request.method == 'POST':
-#         enquiry.delete()
-#         return redirect('dashboard')
-
 
 # Register new user
 @unauthenticated_user
@@ -132,7 +117,6 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
-
 # User dashboard
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
@@ -159,4 +143,3 @@ def dashboard(request):
         'enquiry_bookings':enquiry_bookings
     }
     return render(request, 'dashboard-artist.html', context)
-

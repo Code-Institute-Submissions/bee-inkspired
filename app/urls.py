@@ -6,8 +6,8 @@ urlpatterns = [
     path('gallery/', views.gallery, name='gallery'),
 
     path('book/', views.book, name='book'),
-    path('update-booking/<str:pk>/', views.updateBooking, name='update-booking'),
-    path('cancel-booking/<str:pk>/', views.cancelBooking, name='cancel-booking'),
+    path('update-booking/<str:id>/', views.updateBooking, name='update-booking'),
+    path('cancel-booking/<str:id>/', views.cancelBooking, name='cancel-booking'),
 
     path('login/', views.loginPage, name='login'),
     path('register/', views.register, name='register'),

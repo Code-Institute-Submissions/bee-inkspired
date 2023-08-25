@@ -12,12 +12,6 @@ class BookingForm(ModelForm):
         model = Booking
         fields = '__all__'
 
-# Enquiry form
-class EnquiryForm(ModelForm):
-    class Meta: 
-        model = Enquiry
-        fields = '__all__'
-
 # Register new user form
 class CreateUserForm(UserCreationForm):
     class Meta: 

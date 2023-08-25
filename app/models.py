@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import date
 
 
 # Customer model
@@ -20,7 +21,6 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
-
 # Flash designs model
 class Design(models.Model):
     name = models.CharField(max_length=200, null=True)
@@ -28,7 +28,6 @@ class Design(models.Model):
 
     def __str__(self):
         return self.name
-
 
 # Appointment booking model
 class Booking(models.Model):
@@ -42,15 +41,8 @@ class Booking(models.Model):
         ('silence','silence'),
         ('not fused','not fused')
     )
-    # date =
-    # time =
+    date = models.DateField(default=date.today)
     customer = models.ForeignKey(Customer, null=True, on_delete=models.SET_NULL)
     design = models.ForeignKey(Design, null=True, on_delete=models.SET_NULL)
     status = models.CharField(max_length=200, null=True, choices=STATUS)
     preference = models.CharField(max_length=200, null=True, choices=PREFERENCE)
-
-# Customer enquiry model
-class Enquiry(models.Model):
-    customer = models.ForeignKey(Customer, null=True, on_delete=models.SET_NULL)
-    enquiry = models.CharField(max_length=500, null=True)
-    image = models.FileField(upload_to='customer-enqiries')

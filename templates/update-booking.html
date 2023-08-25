@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="img-background mx-auto">
+    <h1 class="login-header">Update your booking</h1>
+    <div class="col-md-12 section-column center">
+        <form class="form-container" method="POST" action="{% url 'update-booking' booking %}">
+            {% csrf_token %}
+            <div>
+                <label class="booking-label">What would you like to change {{request.user.username}}?</label>
+            </div>
+            <div>
+                <label class="booking-label">design</label>
+                    {{form.design}}
+            </div>
+            <div>
+                <label class="booking-label">preference</label>
+                    {{form.preference}}
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary btn-block mt-4">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{%endblock%}
+

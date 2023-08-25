@@ -10,14 +10,6 @@ def unauthenticated_user(view_func):
             return view_func(request, *args, **kwargs)
     return wrapper_func
 
-# check if a user is logged in so they can book
-def user_booking(view_func):
-    def wrapper_func(request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return view_func(request, *args, **kwargs)
-        else: 
-            return redirect ('login')
-    return wrapper_func
 
 # Restrict user on which dashboard they can see
 def allowed_users(allowed_roles=[]):
