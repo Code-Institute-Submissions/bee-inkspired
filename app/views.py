@@ -137,14 +137,11 @@ def logoutUser(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def client(request):
-    # customer = Customer.objects.all()
-    # booking = Booking.objects.all()
-    # bookings = customer.booking_set.all()
-    # context = {
-    #     'customer':customer,
-    #     'bookings':bookings,
-    # }
-    return render(request, 'dashboard-user.html')
+    bookings = request.user.customer.booking_set.all()
+    context = {
+        'bookings':bookings, 
+    }
+    return render(request, 'dashboard-user.html',context)
 
 # Artist dashboard
 @login_required(login_url='login')
